@@ -1,6 +1,12 @@
 Change Log: `yii2-money`
 ========================
 
+## Version 1.2.4
+
+**Date**: 06-Apr-2025
+
+- Fix input detection on mobile devices.
+
 ## Version 1.2.3
 
 **Date**: 09-Oct-2018

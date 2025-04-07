@@ -19,6 +19,7 @@
         $.browser.webkit = /webkit/.test(navigator.userAgent.toLowerCase());
         $.browser.opera = /opera/.test(navigator.userAgent.toLowerCase());
         $.browser.msie = /msie/.test(navigator.userAgent.toLowerCase());
+        $.browser.mobile = /mobile|android|iphone|ipad|phone|ipod|blackberry|iemobile|kindle|silk|opera mini/.test(navigator.userAgent.toLowerCase());
     }
 
     var methods = {
@@ -478,7 +479,16 @@
                     }
                 }
 
+                function inputEvent(e) {
+                    mask();
+                }
+
                 $input.unbind(".maskMoney");
+
+                if ($.browser.mobile) {
+                    $input.bind("input.maskMoney", inputEvent);    
+                }
+                
                 $input.bind("keypress.maskMoney", keypressEvent);
                 $input.bind("keydown.maskMoney", keydownEvent);
                 $input.bind("blur.maskMoney", blurEvent);
